@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> IGNOU Nain Publication </title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+background: linear-gradient(135deg, #efefef, #ca6363);
+}
+
+header{
+background:#6b1704;
+color:#fff;
+padding:18px;
+text-align:center;
+font-size:30px;
+font-weight:bold;
+}
+
+.hero{
+height:60vh;
+background:linear-gradient(to right,#a10d9a,#1976d2);
+color:rgb(255, 255, 255);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:22px;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 35px;
+background:#ff9800;
+color:#fff;
+text-decoration:none;
+border-radius:50px;
+font-size:20px;
+font-weight:bold;
+transition:.3s;
+max-width:90%;
+text-align:center;
+}
+
+.btn:hover{
+background:#e68900;
+transform:scale(1.05);
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:50px 0;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+
+.card{
+background: linear-gradient(135deg,#169fbe,#ff5e62);
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
+transition:.3s;
+}
+.chat-btn{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:10px 20px;
+
+background:#25D366;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:30px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.chat-btn:hover{
+
+background:#1da851;
+
+transform:scale(1.05);
+
+}
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h3{
+color:#0d47a1;
+margin-bottom:15px;
+}
+
+.card ul{
+padding-left:20px;
+}
+
+.card li{
+margin:10px 0;
+}
+footer{
+background:#0d47a1;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:50px;
+}
+
+.whatsapp-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+display:flex;
+align-items:center;
+gap:10px;
+background:#25D366;
+color:white;
+text-decoration:none;
+padding:12px 18px;
+border-radius:50px;
+font-size:16px;
+font-weight:bold;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+transition:.3s;
+z-index:1000;
+}
+
+.whatsapp-btn img{
+width:28px;
+height:28px;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.05);
+}
+
+@media (max-width:768px){
+
+header{
+font-size:24px;
+padding:15px;
+}
+
+.hero{
+height:auto;
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.btn{
+display:block;
+width:220px;
+margin:20px auto;
+font-size:18px;
+padding:14px 20px;
+}
+
+.whatsapp-btn{
+right:15px;
+bottom:15px;
+padding:12px;
+}
+
+.whatsapp-btn span{
+display:none;
+}
+
+}
+.social-links{
+display:flex;
+justify-content:center;
+gap:20px;
+margin:30px 0;
+flex-wrap:wrap;
+}
+
+.social-links a{
+text-decoration:none;
+padding:12px 25px;
+border-radius:30px;
+color:white;
+font-size:18px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.wa-channel{
+background:#25D366;
+}
+
+.wa-channel:hover{
+background:#1da851;
+}
+.telegram{
+background:#229ED9;
+}
+
+.telegram:hover{
+background:#1b8bc3;
+}
+.youtube{
+background:#FF0000;
+}
+
+.youtube:hover{
+background:#cc0000;
+}
+
+@media(max-width:768px){
+
+.social-links{
+flex-direction:column;
+align-items:center;
+}
+
+.social-links a{
+width:250px;
+text-align:center;
+}
+
+}
+/* Welcome Loader */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#880da1,#d24719);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;
+transition:opacity .8s ease;
+}
+
+.loader-content{
+text-align:center;
+color:white;
+}
+
+.loader-content h1{
+font-size:50px;
+margin-bottom:15px;
+animation:zoom 1.5s infinite alternate;
+}
+
+.loader-content p{
+font-size:22px;
+margin-bottom:30px;
+}
+
+.spinner{
+width:60px;
+height:60px;
+border:6px solid rgba(255,255,255,.3);
+border-top:6px solid white;
+border-radius:50%;
+margin:auto;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+@keyframes zoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.1);
+}
+}
+</style>
+
+</head>
+
+<body>
+<div id="loader">
+
+    <div class="loader-content">
+
+        <h1>🎓 IGNOU Nain Publication</h1>
+
+        <p>Get High Quality Handwritten Assignments, Guess Papers and Exam Notes Delivered Across India. Cash on Delivery Available for your Convenience</p>
+
+        <div class="spinner"></div>
+
+    </div>
+
+</div>
+<header>
+🎓 IGNOU Nain Publication 🎓
+</header>
+
+<section class="hero">
+
+<h1>Welcome to IGNOU Nain Publication</h1>
+<section class="intro">
+
+
+<p>NAIN PUBLICATION Education is your trusted partner for high-quality study support. For more than 11 years, we have been helping students score better with our professionally written assignments, neatly prepared handwritten copies, solved assignments, guess papers, and exam-ready notes.
+We have successfully assisted over 60,000 students with our reliable and accurate academic services. Every assignment is prepared with proper formatting, clean handwriting, and updated study material to help you score 80+ marks with confidence.
+</p>
+
+</section>
+
+<p>Get Top-Quality Study Materials Delivered Instantly! 🚀</p>
+
+<a href="#services" class="btn">Explore Services</a>
+
+</section>
+
+<div class="container">
+
+<h2 id="services" style="text-align:center;color:#0d47a1;font-size:35px;margin-bottom:40px;">
+Our Services
+</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>📘 Assignments</h3>
+<ul>
+<li>✅ Solved Assignment PDFs</li>
+<li>✅ Handwritten Hard Copies (Home Delivery)</li>
+<li>✅ Handwritten Scanned PDFs</li>
+</ul>
+<a href="https://wa.me/918278485213?text=Hello,%20I%20want%20information%20about%20IGNOU%20Assignments." class="chat-btn" target="_blank">
+💬 Chat to Us
+</a>
+</div>
+
+<div class="card">
+<h3>📚 Exam Support</h3>
+<ul>
+<li>✅ Expert Guess Papers</li>
+<li>✅ Sample Papers</li>
+<li>✅ Previous Year Questions</li>
+</ul>
+<a href="https://wa.me/918278485213?text=Hello,%20I%20want%20information%20about%20IGNOU%20Exam%20S upport." class="chat-btn" target="_blank">
+💬 Chat to Us
+</a>
+</div>
+
+<div class="card">
+<h3>🎓 Projects</h3>
+<ul>
+<li>✅ Project Reports</li>
+<li>✅ Synopsis</li>
+<li>✅ Practical Files</li>
+</ul>
+<a href="https://wa.me/918278485213?text=Hello,%20I%20want%20information%20about%20IGNOU%20Project%20Reports." class="chat-btn" target="_blank">
+💬 Chat to Us
+</a>
+</div>
+
+<div class="card">
+<h3>📝 Reports</h3>
+<ul>
+<li>✅ Journal</li>
+<li>✅ Internship Report</li>
+<li>✅ Alternative Report</li>
+</ul>
+<a href="https://wa.me/918278485213?text=Hello,%20I%20want%20information%20about%20IGNOU%20Reports." class="chat-btn" target="_blank">
+💬 Chat to Us
+</a>
+</div>
+
+</div>
+
+</div>
+<div class="social-links">
+
+<a href="https://whatsapp.com/channel/0029Vamelk2HrDZX1kfr7P11" target="_blank" class="wa-channel">
+📢 WhatsApp Channel
+</a>
+<a href="https://t.me/IGNOUSOLUTIONHUBB" target="_blank" class="telegram">
+✈️ Telegram Channel
+</a>
+
+<a href="https://youtube.com/@ignouupdate?si=TlSzxubtO7reUdpV" target="_blank" class="youtube">
+▶ YouTube Channel
+
+</a>
+
+</div>
+<footer>
+
+© 2026 IGNOU Nain Publication | All Rights Reserved
+
+</footer>
+
+<a href="https://wa.me/918278485213" class="whatsapp-btn" target="_blank">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+
+<span>Chat with Us</span>
+
+</a>
+<script>
+
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.opacity="0";
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},800);
+
+},2500);
+
+});
+
+</script>
+</body>
+</html>
